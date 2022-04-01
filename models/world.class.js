@@ -58,7 +58,27 @@ class World {
                 this.statusBar.setPercentage(this.character.energy);
             }
         });
+        for (let i = 0; i < this.level.coins.length; i++) {
+            const coin = this.level.coins[i];
+            if(this.character.isColliding(coin)){
+                this.coinbar.percentage = this.coinbar.percentage + 10;
+                this.coinbar.setPercentage(this.coinbar.percentage);
+                this.level.coins.splice(i, 1);
+            }
+        }
+        /*
+        this.level.coins.forEach ((coin) => {
+            if(this.character.isColliding(coin)){
+                this.coinbar.percentage = this.coinbar.percentage + 10;
+                this.coinbar.setPercentage(this.coinbar.percentage);
+                this.level.coins.splice(coin, 1);
+            }
+        });
+        */
     }
+
+
+
 
     draw(){
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
