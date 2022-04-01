@@ -10,6 +10,7 @@ class World {
     coinbar = new CoinBar();
     bottlebar = new BottleBar();
     throwableObjects = [];
+    throwthing = new ThrowableObject();
 
 
     constructor(canvas){
@@ -39,9 +40,9 @@ class World {
             this.throwableObjects.push(bottle);
             this.bottlebar.percentage = this.bottlebar.percentage - 5;
             this.bottlebar.setPercentage(this.bottlebar.percentage);
-            
         }
     }
+
 
     checkForAvailableBottles() {
         if(this.bottlebar.percentage > 0){
@@ -58,12 +59,25 @@ class World {
                 this.statusBar.setPercentage(this.character.energy);
             }
         });
+        this.level.enemies.forEach ((enemy) => {
+            if(this.throwthing.isColliding(enemy)) {
+                console.log('hit');
+            }
+        });
         for (let i = 0; i < this.level.coins.length; i++) {
             const coin = this.level.coins[i];
             if(this.character.isColliding(coin)){
                 this.coinbar.percentage = this.coinbar.percentage + 10;
                 this.coinbar.setPercentage(this.coinbar.percentage);
                 this.level.coins.splice(i, 1);
+            }
+        }
+        for (let i = 0; i < this.level.bottles.length; i++) {
+            const bottle = this.level.bottles[i];
+            if(this.character.isColliding(bottle)){
+                this.bottlebar.percentage = this.bottlebar.percentage + 5;
+                this.bottlebar.setPercentage(this.bottlebar.percentage);
+                this.level.bottles.splice(i, 1);
             }
         }
         /*
@@ -97,6 +111,7 @@ class World {
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
         this.addObjectsToMap(this.level.coins);
+        this.addObjectsToMap(this.level.bottles);
         this.addObjectsToMap(this.throwableObjects);
 
         this.ctx.translate(-this.camera_x, 0);
