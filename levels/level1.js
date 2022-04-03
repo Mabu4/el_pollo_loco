@@ -6,7 +6,6 @@ function initLevel() {
             new Chicken(),
             new Chicken(),
             new Chicken(),
-            new Endboss(),
             new FastChicken(),
             new FastChicken(),
             new FastChicken(),
@@ -76,7 +75,10 @@ function initLevel() {
             new Bottles(),
             new Bottles(),
             new Bottles(),
-            new Bottles(),
+            new Bottles()
+        ],
+        [
+            new Endboss()
         ]
     );
 }

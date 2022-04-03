@@ -19,10 +19,10 @@
     <script src="./models/background-object.class.js"></script>
     <script src="./models/keyboard.class.js"></script>
     <script src="./models/throwable-object.class.js"></script>
-    <script src="./models/endboss.class.js"></script>
     <script src="./models/chicken_fast.class.js"></script>
     <script src="./models/coins.class.js"></script>
     <script src="./models/bottles.class.js"></script>
+    <script src="./models/endboss.class.js"></script>
     <script src="./models/level.class.js"></script>
     <script src="./levels/level1.js"></script>
     <script src="./js/game.js"></script>
@@ -37,15 +37,50 @@
         <img src="./img/9.Intro _ Outro Image/Start Screen/Opción 1.png">
         <button class="button" onclick="initLevel(); init(); startGame()">Start Game</button>
     </div>
+    
+    
 
     <canvas class="d-none" id="canvas" width="720" height="480">
 
     </canvas>
+    
+
+    
+    
 
     <div id="game_over" class="game_over d-none screen">
         <img class="gamer_over_img-1" src="./img/5.Fondo/1.png">
         <img class="gamer_over_img-2" src="./img/9.Intro _ Outro Image/_Game over_ screen/2.oh no you lost!.png">
         <!-------<button class="button game_over-button" onclick="refresh()">Restart</button>----->
+    </div>
+    <div class="img_fullscreen-box">
+        <img onclick="openFullscreen()" class="img_fullscreen" src="./img/icons/fullscreen-12-32.png">
+    </div>
+    <div class="info_screen" id="info_screen">
+        <div class="info_box">
+            <div class="info_box-element">
+                <img src="./img/icons/icons8-box-move-left-48.png" class="info_box-key">
+                <div class="info_box-meaning">MOVE LEFT</div>
+            </div>
+            <div class="info_box-element">
+                <img src="./img/icons/icons8-box-move-right-48.png" class="info_box-key">
+                <div class="info_box-meaning">MOVE RIGHT</div>
+            </div>
+            <div class="info_box-element">
+                <img src="./img/icons/icons8-space-key-48.png" class="info_box-key">
+                <div class="info_box-meaning">JUMP</div>
+            </div>
+            <div class="info_box-element">
+                <img src="./img/icons/D.png" class="info_box-key info_box-key-4">
+                <div class="info_box-meaning">THROW BOTTLE</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="links">
+        <a target="_blank" href="https://icons8.com/icon/ZARLfT5EzRoz/space-key">Space Key</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        <a target="_blank" href="https://icons8.com/icon/R5OWdooEfUbc/box-move-left">Box Move Left</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        <a target="_blank" href="https://icons8.com/icon/111064/d">D</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
     </div>
 
 </body>

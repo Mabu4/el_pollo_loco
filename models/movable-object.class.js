@@ -66,11 +66,11 @@ class MovableObject extends DrawableObject {
         this.x -= this.speed;
     }
 
-    moveAuto(movingEnd, movingStart){
+    moveAuto(){
         var id = setInterval(() => {
             this.x -= this.speed;
             this.otherDirection = false;
-            if(this.x <= movingEnd){clearInterval(id); this.moveSwitchAuto(movingEnd, movingStart);}
+            if(this.x <= this.movingEnd){clearInterval(id); this.moveSwitchAuto(this.movingEnd, this.movingStart);}
         }, 1000 / 60);
     }
 

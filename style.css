@@ -7,7 +7,9 @@ body {
 
 canvas {
     background-color: black;
+    display: block;
 }
+
 
 .d-none {
     display: none;
@@ -31,11 +33,11 @@ canvas {
 
 .button {
     position: absolute;
-    bottom: 0;
     width: 220px;
     height: 35px;
-    left: 340px;
-    bottom: 10px;
+    bottom: 20px;
+    z-index: 2;
+    left: calc(50% - 110px);
     background-color: #FFDA07;
     border: none;
     font-size: 20px;
@@ -47,6 +49,18 @@ canvas {
 
 .button:hover {
     background-color: #f1ce04;
+}
+
+.img_fullscreen-box {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    width: 700px;
+    margin-top: -50px;
+}
+
+.img_fullscreen {
+    cursor: pointer;
 }
 
 .gamer_over_img-1 {
@@ -63,4 +77,98 @@ canvas {
 
 .game_over-button {
     left: 250px;
+}
+
+.info_box {
+    margin-top: 20px;
+    width: 720px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.info_box-element {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: #f6b45e73;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.info_box-key {
+    width: 40px;
+    height: 40px;
+}
+
+.info_box-meaning {
+    padding: 0 10px;
+}
+
+.info_box-key-4 {
+    width: 32px;
+    height: 32px;
+}
+
+
+.links {
+    padding-top: 20px;
+    font-size: 5px;
+}
+
+@media (max-width: 720px){
+    canvas {
+        width: 100%;
+    }
+    .screen {
+        position: relative;
+        width: 100%;
+        max-height: 480px;
+    }
+    .img_fullscreen-box {
+        margin-right: 20px;
+        margin-top: -35px;
+        width: 100%;
+    }
+    .img_fullscreen {
+        width: 20px;
+        height: 20px;
+    }
+    .info_box {
+        width: 100%;
+    }
+    .info_box-key {
+        width: 25px;
+        height: 25px;
+    }
+    .info_box-meaning {
+        padding: 0 5px;
+        font-size: 13px;
+    }
+    .button {
+        width: 150px;
+        height: 25px;
+        bottom: 15px;
+        left: calc(50% - 75px);
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 450px){
+    .button {
+        bottom: 10px;
+        font-size: 15px;
+    }
+}
+@media (max-height: 480px){
+    canvas {
+        height: 100vh;
+    }
+    h1 {
+        display: none;
+    }
+    .screen {
+        height: 100vh;
+    }
 }

@@ -18,6 +18,11 @@ function refresh() {
     window.top.location.reload(true);
 }
 
+function openFullscreen(){
+    document.getElementById('canvas').requestFullscreen();
+}
+
+
 /*
 
 function saveGameOver(){

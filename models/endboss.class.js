@@ -4,10 +4,12 @@ class Endboss extends MovableObject {
     width = 300;
     y = 60;
     speed = 1;
-    movingEnd = 3600;
-    movingStart = 4000;
+    movingEnd = 3500;
+    movingStart = 3800;
+    energy = 100;
+    dead = false;
 
-    IMAGES_WALKING = [
+    IMAGES_STAND = [
         'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/1.Alerta/G5.png',
         'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/1.Alerta/G6.png',
         'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/1.Alerta/G7.png',
@@ -17,19 +19,43 @@ class Endboss extends MovableObject {
         'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/1.Alerta/G11.png',
         'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/1.Alerta/G12.png',
     ];
+    IMAGES_ATTACK = [
+        'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/2.Ataque/G13.png',
+        'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/2.Ataque/G14.png',
+        'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/2.Ataque/G15.png',
+        'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/2.Ataque/G16.png',
+        'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/2.Ataque/G17.png',
+        'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/2.Ataque/G18.png',
+        'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/2.Ataque/G19.png',
+        'img/4.Secuencias_Enemy_gigantón-Doña_Gallinota-/2.Ateción-ataque/2.Ataque/G20.png',
+    ];
 
     constructor(){
-        super().loadImage(this.IMAGES_WALKING[0]);
-        this.loadImages(this.IMAGES_WALKING);
+        super().loadImage(this.IMAGES_STAND[0]);
+        this.loadImages(this.IMAGES_STAND);
+        this.loadImages(this.IMAGES_ATTACK);
         this.x = 4000;
         this.animate();
     }
 
-    animate(){
-        setInterval( () => {
-            this.playAnimation(this.IMAGES_WALKING);
-        }, 200);
-        this.moveAuto(this.movingEnd, this.movingStart);
+    reduceEnergy(energy){
+        this.energy = this.energy - energy;
+        if(this.energy <= 0) {
+            this.dead = true;
+        }
     }
 
+    animate(){
+        setInterval( () => {
+            if(this.energy > 40){
+                this.playAnimation(this.IMAGES_ATTACK);
+            }
+            if(this.energy < 40){
+                this.playAnimation(this.IMAGES_ATTACK);
+                this.speed = 3;
+                this.movingEnd = 2000;
+            }
+        }, 200);
+        this.moveAuto();
+    }
 }

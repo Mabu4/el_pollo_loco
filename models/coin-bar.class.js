@@ -9,6 +9,7 @@ class CoinBar extends DrawableObject {
         'img/7.Marcadores/Barra/Marcador moneda/azul/100_.png',
     ];
 
+    coin_sound = new Audio('audio/coin.mp3');
     percentage;
 
     constructor(){
