@@ -10,6 +10,7 @@ class World {
     coinbar = new CoinBar();
     bottlebar = new BottleBar();
     throwableObjects = [];
+    endbossEnergy = 5;
 
 
     constructor(canvas){
@@ -31,6 +32,10 @@ class World {
             this.checkThrowObjects();
             this.checkCollisions();
         }, 200);
+        setInterval(() => {
+            this.checkCollisionsOfBottles();
+        }, 50);
+        
     }
 
     checkThrowObjects() {
@@ -51,6 +56,18 @@ class World {
         }
     }
 
+    checkCollisionsOfBottles() {
+        for (let i = 0; i < this.level.enemies.length; i++) {
+            let enemy = this.level.enemies[i];
+            this.throwableObjects.forEach((obj) => {
+                if(enemy.isColliding(obj)){
+                    console.log('hit'+ enemy);
+                    this.level.enemies.splice(i, 1);
+                }
+            })
+        }
+    }
+
     checkCollisions(){
         this.level.enemies.forEach ((enemy) => {
             if(this.character.isColliding(enemy)) {
@@ -58,27 +75,6 @@ class World {
                 this.statusBar.setPercentage(this.character.energy);
             }
         });
-
-        this.throwableObjects.forEach ((obj) => {
-            this.level.enemies.forEach ((enemy) => {
-                if(enemy.isColliding(obj)) {
-                    console.log('hit');
-                }
-            }) 
-        });
-
-        /*
-        for (let i = 0; i < this.throwableObjects; i++) {
-            const bottle = this.throwableObjects[i];
-            for (let index = 0; index < this.level.enemies.length; index++) {
-                const element = this.level.enemies[index];
-                if(this.element.isColliding(bottle)){
-                    console.log('hit');
-                }
-            }
-        }
-        */
-        
         for (let i = 0; i < this.level.coins.length; i++) {
             const coin = this.level.coins[i];
             if(this.character.isColliding(coin)){

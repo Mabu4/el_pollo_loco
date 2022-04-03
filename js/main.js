@@ -8,6 +8,9 @@ function startGame() {
 function game_over(){
     document.getElementById('canvas').classList.add('d-none');
     document.getElementById('game_over').classList.remove('d-none');
+    setTimeout(function(){
+        refresh();
+    }, 2000);
 }
 
 
