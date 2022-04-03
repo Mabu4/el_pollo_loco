@@ -19,7 +19,7 @@ class FastChicken extends MovableObject {
         this.loadImages(this.IMAGES_WALKING);
 
         // Bei Variablen verändern brauchen wir kein super()
-        this.x = 1500 + Math.random() * 2400; // Zahl immer zwischen 1500 und 3900
+        this.x = 1500 + Math.random() * 2000; // Zahl immer zwischen 1500 und 3500
         this.movingStart = this.x;
         this.movingEnd = this.x - (200 + Math.random() * 1000);
         this.speed = 0.4 + Math.random() * 1;

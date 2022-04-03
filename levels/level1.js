@@ -13,10 +13,6 @@ function initLevel() {
             new FastChicken(),
             new FastChicken(),
             new FastChicken(),
-            new FastChicken(),
-            new FastChicken(),
-            new FastChicken(),
-            new FastChicken(),
         ],
 
         [
