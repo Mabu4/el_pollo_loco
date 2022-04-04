@@ -26,10 +26,6 @@ class World {
         this.character.world = this;
     }
 
-    openFullscreen(){
-        this.canvas.requestFullscreen();
-    }
-
     run(){
         setInterval(() => {
             this.checkThrowObjects();
@@ -74,11 +70,15 @@ class World {
                 if(boss.isColliding(obj)){
                     boss.reduceEnergy(1);
                     if(boss.dead){
-                        this.level.endboss.splice(i, 1);
+                        setTimeout(() => 
+                        {
+                            this.deleteBoss(i);
+                        }, 750);
                     }
                 }
             })
         }
+
     }
 
     checkCollisions(){
@@ -113,6 +113,17 @@ class World {
             }
         }
     }
+
+    deleteBoss(i){
+        this.level.endboss.splice(i, 1);
+        setTimeout(() => 
+            {
+                gameWin();
+            }, 150);
+        
+    }
+    
+
 
     draw(){
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);

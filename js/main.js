@@ -3,14 +3,26 @@ let words = []
 function startGame() {
     document.getElementById('start_screen').classList.add('d-none');
     document.getElementById('canvas').classList.remove('d-none');
+    document.getElementById('fullscreen-box').classList.remove('d-none');
+    
 }
 
 function game_over(){
     document.getElementById('canvas').classList.add('d-none');
     document.getElementById('game_over').classList.remove('d-none');
+    document.getElementById('fullscreen-box').classList.add('d-none');
     setTimeout(function(){
         refresh();
     }, 2000);
+}
+
+function gameWin(){
+    document.getElementById('canvas').classList.add('d-none');
+    document.getElementById('game_win').classList.remove('d-none');
+    document.getElementById('fullscreen-box').classList.add('d-none');
+    setTimeout(function(){
+        refresh();
+    }, 10000);
 }
 
 

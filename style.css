@@ -10,11 +10,6 @@ canvas {
     display: block;
 }
 
-
-.d-none {
-    display: none;
-}
-
 .screen {
     position: relative;
     max-width: 720px;
@@ -30,6 +25,7 @@ canvas {
     width: 100%;
     height: 100%;
 }
+
 
 .button {
     position: absolute;
@@ -65,6 +61,8 @@ canvas {
 
 .gamer_over_img-1 {
     display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .gamer_over_img-2 {
@@ -77,6 +75,15 @@ canvas {
 
 .game_over-button {
     left: 250px;
+}
+
+.game_win-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: #FFDA07;
+    font-weight: bold;
 }
 
 .info_box {
@@ -171,4 +178,8 @@ canvas {
     .screen {
         height: 100vh;
     }
+}
+
+.d-none {
+    display: none;
 }
